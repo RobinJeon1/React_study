@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>react counter</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <!-- react -->
+  <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <!-- reactDOM -->
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <!-- babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    function Container() {
+      const [counter, setCounter] = React.useState(0);
+
+      const countUp = () => {
+        setCounter(counter + 1);
+      };
+
+      return (
+        <div>
+          <h3>Total clicks : {counter}</h3>
+          <button onClick={countUp}>Click Me</button>
+        </div>
+      );
+    }
+
+    // React container 생성
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    //root에 Component render
+    root.render(<Container />);
+  </script>
+</html>
