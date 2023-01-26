@@ -3,23 +3,30 @@ import Greeting from "./Greeting";
 
 function App() {
   const [name, setName] = React.useState("");
-  //const nameState = React.useState(0); //React.useState(0) 의 return 값 저장
-  //const name = dataState[0];
-  //const setName = dataState[1];
+  // const nameState = React.useState("");
+  // //React.useState("") 의 return 값 저장. React.useState( )의 인자값은 state의 초기값이다.
+  // const name = nameState[0]; //state
+  // const setName = nameState[1]; //setState()
   const [isInput, setIsInput] = React.useState(false);
 
-  //input text event 함수
-  const onChange = (e) => {
+  //input text event handler //event발생시 event 객체가 인자로 전달됨
+  const changeInputText = (e) => {
     //setState
     setName(e.target.value);
     setIsInput(true);
+  };
+
+  const clearInputText = () => {
+    setName("");
+    setIsInput(false);
   };
 
   return (
     <div>
       <label>
         Name:
-        <input type="text" value={name} onChange={onChange} />
+        <input type="text" value={name} onChange={changeInputText} />
+        <button onClick={clearInputText}>clear</button>
       </label>
       {isInput ? <Greeting name={name} /> : null}
     </div>

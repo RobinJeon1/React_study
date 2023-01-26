@@ -1,7 +1,7 @@
 import React from "react";
 import Greeting from "./Greeting";
 
-class App2 extends React.Component {
+class AppClass extends React.Component {
   constructor(props) {
     super(props);
     //state 초기값 설정
@@ -11,12 +11,19 @@ class App2 extends React.Component {
     };
   }
 
-  //input text내 event 함수
-  onChange = (e) => {
+  //input text event handler
+  changeInputText = (e) => {
     //setState 함수
     this.setState({
       name: e.target.value,
       isInput: true,
+    });
+  };
+
+  clearInputText = () => {
+    this.setState({
+      name: "",
+      isInput: false,
     });
   };
 
@@ -25,7 +32,12 @@ class App2 extends React.Component {
       <div>
         <label>
           Name:
-          <input type="text" value={this.state.name} onChange={this.onChange} />
+          <input
+            type="text"
+            value={this.state.name}
+            onChange={this.changeInputText}
+          />
+          <button onClick={this.clearInputText}>clear</button>
         </label>
         {this.state.isInput ? <Greeting name={this.state.name} /> : null}
       </div>
@@ -33,4 +45,4 @@ class App2 extends React.Component {
   }
 }
 
-export default App2;
+export default AppClass;

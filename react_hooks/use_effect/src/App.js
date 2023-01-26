@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [keyword, setKeyword] = useState("");
+  const [count, setCount] = React.useState(0);
+  const [keyword, setKeyword] = React.useState("");
 
   const counter = () => setCount(count + 1);
 
@@ -12,15 +12,15 @@ function App() {
 
   console.log("render");
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log("Component가 모두 로딩됨");
   }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log("use input text:", keyword);
   }, [keyword]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     console.log("use counter:", count);
   }, [count]);
 

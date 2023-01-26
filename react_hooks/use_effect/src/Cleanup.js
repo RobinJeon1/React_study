@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 function Hello() {
-  useEffect(() => {
-    //mount
+  React.useEffect(() => {
+    //Did mount
     console.log("created");
 
-    //unmount
+    //Will unmount
     return () => {
       console.log("destroyed");
     };
@@ -15,7 +15,7 @@ function Hello() {
 }
 
 function AppCleanup() {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = React.useState(true);
 
   const onClick = () => {
     setIsShow(!isShow);
